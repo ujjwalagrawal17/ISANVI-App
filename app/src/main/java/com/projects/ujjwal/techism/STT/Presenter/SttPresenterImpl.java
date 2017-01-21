@@ -23,6 +23,8 @@ public class SttPresenterImpl implements SttPresenter {
 			@Override
 			public void onSuccess(SttResponse sttResponse) {
 				if (sttResponse.isSuccess()){
+				sttView.showMessage(sttResponse.getMessage());
+
 				}
 			}
 

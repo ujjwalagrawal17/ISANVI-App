@@ -14,6 +14,7 @@ import com.projects.ujjwal.techism.R;
 import com.projects.ujjwal.techism.STT.Model.RetrofitSttHelper;
 import com.projects.ujjwal.techism.STT.Presenter.SttPresenter;
 import com.projects.ujjwal.techism.STT.Presenter.SttPresenterImpl;
+import com.projects.ujjwal.techism.TtsActivity;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -72,15 +73,18 @@ public class SttActivity extends AppCompatActivity implements View.OnClickListen
 					voiceInput.setText(result.get(0));
 					objectName=result.get(0);
 					sttPresenter.getUserInput(objectName);
-				}
+			}
 				break;
 			}
 		}
-
 	}
 
 	@Override
 	public void showMessage(String s) {
+
+		Intent intent = new Intent(this, TtsActivity.class);
+		intent.putExtra("message", s);
+		startActivity(intent);
 		Toast.makeText(this,s,Toast.LENGTH_SHORT).show();
 	}
 }
